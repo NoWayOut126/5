@@ -43,3 +43,8 @@ if __name__ == "__main__":
 number = 3
 print("Roman value is:", end = " ")
 printRoman(number)
+Задание #4
+if __name__ == '__main__':
+d = {'Petr': '546810', 'Katya': '241815'}
+inverse_dict = {v: k for k, v in d.items()}
+print(inverse_dict)
