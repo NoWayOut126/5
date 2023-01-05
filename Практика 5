@@ -1,0 +1,45 @@
+Задание #1
+import re
+import json
+from collections import Counter
+from string import ascii_lowercase as letters
+def read_file(path):
+result = None
+with open(path, encoding="utf8") as file:
+text = file.read().lower()
+return result
+def find_words(text):
+words = re.findall(r'\w+', text)
+cnt = Counter(words)
+return dict(cnt)
+def find_letters(text):
+cnt = Counter()
+for letter in letters:
+cnt[letter] = text.count(letter)
+return dict(cnt)
+def write_file(all_entities, path):
+with open(path, "w") as file:
+json.dump(all_entities, file, indent = 4)
+file = read_file("test_data.txt")
+words = find_words(file)
+letters = find_letters(file)
+common_dict = {"words":words, "letters":letters}
+write_file(common_dict, "file1.txt")
+Задание #2
+def printRoman(number):
+num = [1, 4, 5, 9, 10, 40, 50, 90,
+100, 400, 500, 900, 1000]
+sym = ["I", "IV", "V", "IX", "X", "XL",
+"L", "XC", "C", "CD", "D", "CM", "M"]
+i = 12      
+while number:
+div = number // num[i]
+number %= num[i]
+while div:
+print(sym[i], end = "")
+div -= 1
+i -= 1
+if __name__ == "__main__":
+number = 3
+print("Roman value is:", end = " ")
+printRoman(number)
